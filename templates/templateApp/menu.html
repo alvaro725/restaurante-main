@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú - Sabores de Chile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #333;
+      color: white;
+      padding: 15px 0;
+      margin: 0 0 20px;
+    }
+
+    nav {
+      margin-bottom: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #007BFF;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    li {
+      background-color: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .carrito-btn {
+      margin-top: 20px;
+      background-color: #28a745;
+    }
+
+    .carrito-btn:hover {
+      background-color: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú</h1>
+
+  <nav>
+    <a href="{% url 'inicio' %}">Inicio</a> |
+    <a href="{% url 'menu' %}">Menú</a> |
+    <a href="{% url 'carrito' %}">Carrito</a>
+  </nav>
+
+  <ul>
+    {% for producto in productos %}
+      <li>
+        {{ producto.nombre }} - {{ producto.precio }} CLP
+        <button onclick="agregar('{{ producto.nombre }}', '{{ producto.precio }}')">Agregar</button>
+      </li>
+    {% empty %}
+      <li>No hay productos disponibles</li>
+    {% endfor %}
+  </ul>
+
+  <a class="carrito-btn" href="{% url 'carrito' %}">Ir al Carrito</a>
+
+  <script>
+    function agregar(nombre, precio) {
+      // Convertimos precio a número
+      precio = parseInt(precio);
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ nombre: nombre, precio: precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(nombre + " agregado al carrito.");
+    }
+  </script>
+</body>
+</html>

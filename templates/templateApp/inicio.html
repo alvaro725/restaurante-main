@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio - Sabores de Chile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffdf9;
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #b22222;
+      color: white;
+      padding: 20px 0;
+      margin: 0;
+      font-size: 2em;
+    }
+
+    nav {
+      background-color: #f8f8f8;
+      padding: 12px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #b22222;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6f61;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #666;
+      padding: 15px 0;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sabores de Chile</h1>
+
+  <nav>
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <a href="{% url 'menu' %}">Menú</a>
+    <a href="{% url 'carrito' %}">Carrito</a>
+  </nav>
+
+  <main>
+    <p>Bienvenido a <strong>Sabores de Chile</strong>. Disfruta lo mejor de nuestra gastronomía.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Sabores de Chile
+  </footer>
+</body>
+</html>

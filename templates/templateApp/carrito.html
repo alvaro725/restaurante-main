@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito</title>
+</head>
+<body>
+  <h1>Carrito</h1>
+  <ul id="lista"></ul>
+  <p id="total">Total: 0 CLP</p>
+
+  <button onclick="location.href='menu.html'">Volver al Menú</button>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let total = 0;
+    let lista = document.getElementById("lista");
+
+    carrito.forEach(item => {
+      let li = document.createElement("li");
+      li.textContent = item.nombre + " - " + item.precio + " CLP";
+      lista.appendChild(li);
+      total += item.precio;
+    });
+
+    document.getElementById("total").textContent = "Total: " + total + " CLP";
+  </script>
+</body>
+</html>
