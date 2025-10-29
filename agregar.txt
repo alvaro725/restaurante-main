@@ -1,0 +1,5 @@
+tabla cliente y que se deba agregar el nombre, apellido, rut, y despues se puede ir al menu
+
+agregar una descrpcion del platiyo y agregar categorias
+
+editar el menu del admin
