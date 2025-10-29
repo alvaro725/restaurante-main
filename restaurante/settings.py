@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'restaurante.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',      # o el nombre que pusiste en Workbench (por ejemplo: sabores_db)
-        'USER': 'root',          # tu usuario de MySQL
-        'PASSWORD': '12345678',  # la contraseña que pusiste al instalar
-        'HOST': '127.0.0.1',     # o localhost
+        'NAME': 'mydb',      
+        'USER': 'root',         
+        'PASSWORD': '123456',  
+        'HOST': '127.0.0.1',  
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
